@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "1fc7bc257c93977826ce40e7cb94b18c",
+    "entities": [
+      {
+        "tableName": "Customer",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nama` TEXT, `alamat` TEXT, `noTelp` TEXT, `cust_id` INTEGER PRIMARY KEY AUTOINCREMENT)",
+        "fields": [
+          {
+            "fieldPath": "nama",
+            "columnName": "nama",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "alamat",
+            "columnName": "alamat",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noTelp",
+            "columnName": "noTelp",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cust_id",
+            "columnName": "cust_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "cust_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1fc7bc257c93977826ce40e7cb94b18c')"
+    ]
+  }
+}

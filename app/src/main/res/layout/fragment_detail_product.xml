@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/detail_image"
+        android:layout_width="match_parent"
+        android:layout_height="382dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/kopi2" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="448dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/roundedtop16">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="44dp">
+
+            <TextView
+                android:id="@+id/bean_coffe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bean Coffe"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/detail_nama_produk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bean_coffe"
+                android:text="Robusta Coffe"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/description_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_nama_produk"
+                android:layout_marginTop="21dp"
+                android:text="Description"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detail_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/description_header"
+                android:width="284dp"
+                android:text="Kopi adalah minuman hasil seduhan biji kopi yang telah disangrai dan dihaluskan menjadi bubuk. Kopi merupakan salah satu komoditas di dunia yang dibudidayakan lebih dari 50 negara."
+                android:textColor="@color/black"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_description"
+                android:layout_marginTop="18dp"
+                android:text="Price"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price"
+                android:text="Rp 50.000"
+                android:textColor="@color/black"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detail_price"
+                android:layout_marginTop="18dp"
+                android:text="Location"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lokasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/location"
+                android:text="Malang, Jawa Timur"
+                android:textColor="@color/black"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/stokk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lokasi"
+                android:layout_marginTop="18dp"
+                android:text="Stok"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detail_stok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stokk"
+                android:text="Malang, Jawa Timur"
+                android:textColor="@color/black"
+                android:textSize="11dp" />
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="323dp"
+                android:layout_height="42dp"
+                android:layout_below="@id/detail_stok"
+                android:text="Edit Product"
+                android:textAllCaps="false"
+                android:layout_marginTop="21dp"
+                android:layout_marginLeft="13dp"
+                android:backgroundTint="#967259"/>
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="323dp"
+                android:layout_height="42dp"
+                android:layout_below="@id/updateButton"
+                android:text="Delete Product"
+                android:textAllCaps="false"
+                android:layout_marginTop="21dp"
+                android:layout_marginLeft="13dp"
+                android:backgroundTint="#967259"/>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingback"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="25dp"
+        android:clickable="true"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/white50"
+        app:srcCompat="@drawable/arrow_left"
+        app:fabCustomSize="32dp"/>
+
+
+</RelativeLayout>

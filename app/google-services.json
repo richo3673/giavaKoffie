@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "539459557165",
+    "project_id": "prokir-ca949",
+    "storage_bucket": "prokir-ca949.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539459557165:android:01a375328d91713f66a5a4",
+        "android_client_info": {
+          "package_name": "com.example.prokir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539459557165-ehj4kvjkbpscq0pas1hi97v2739u9ssv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGANOMncmlUBPhDT8xPqg5Xf4JFQq0YD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539459557165-ehj4kvjkbpscq0pas1hi97v2739u9ssv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

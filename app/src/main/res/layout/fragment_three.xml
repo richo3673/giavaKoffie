@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDD1C3"
+    android:scrollbars="vertical"
+    android:clipChildren="false">
+
+    <ImageView
+        android:id="@+id/backbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:layout_marginLeft="41dp"
+        android:src="@drawable/ic_back"
+        app:tint = "#967259"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="24dp"
+        android:layout_toRightOf="@id/backbutton"
+        android:text="Add Transaction"
+        android:textColor="#212121"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/item"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="33dp"
+        android:background="@drawable/roundedbottom16white"
+        app:backgroundTint = "@color/white"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/title">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:boxBackgroundColor="@color/white"-->
+<!--            android:background="#B88E6A"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            &lt;!&ndash; Inside text input layout add-->
+<!--                  an auto complete text view-->
+<!--                    and make its input type to none&ndash;&gt;-->
+<!--            <AutoCompleteTextView-->
+<!--                android:id="@+id/autoCompleteTextView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:inputType="none"-->
+<!--                android:text="Choose Your Item"-->
+<!--                />-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#B88E6A">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose Your Item"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="13sp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+            <ImageView
+                android:id="@+id/products"
+                android:pointerIcon="hand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginRight="28dp"
+                android:src="@drawable/ic_arrowbottom"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+<!--            ini buat gambar-->
+            <ImageView
+                android:layout_width="95.2dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="16.84dp"
+                android:layout_height="67dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="23.7dp"
+                android:src="@mipmap/ic_coffee_foreground"
+                android:background="@drawable/roundedbottom10"
+                android:backgroundTint="@color/white"/>
+            <TextView
+                android:id="@+id/coffeename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_marginTop="37dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="48dp"
+                android:layout_marginLeft="23.7dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="None"/>
+            <TextView
+                android:id="@+id/coffeeprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:layout_weight="1"
+                android:layout_marginRight="10.83dp"
+                android:layout_marginTop="18dp"
+                android:textStyle="bold"
+                android:gravity="right"
+                android:textColor="#967259"
+                android:text="Rp 0"/>
+            <TextView
+                android:id="@+id/idnumber"
+                android:visibility="invisible"
+                android:text="theid"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="26dp"
+        android:background="@drawable/rounded15"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/buydate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy Date"
+            android:textColor="#525050"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buydate"
+            android:layout_marginTop="12dp"
+            android:text="Item"
+            android:textColor="#525050"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/buydate"
+            android:gravity="right"
+            android:text="20 Desember 2022"
+            android:textColor="#525050"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/jmlProduk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tanggal"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="11dp"
+            android:layout_toRightOf="@id/buydate"
+            android:background="@null"
+            android:gravity="right"
+            android:inputType="number"
+            android:text="0"
+            android:textColor="#525050"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:theme="@style/editText" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="26dp"
+        android:background="@drawable/rounded15"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/totalitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Item"
+            android:textColor="#525050"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/pajak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/totalitem"
+            android:layout_marginTop="11dp"
+            android:text="Pajak (10%)"
+            android:textColor="#525050"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/hargatotalitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/totalitem"
+            android:gravity="right"
+            android:text="Rp 0"
+            android:textColor="#525050"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hargapajak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hargatotalitem"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="11dp"
+            android:layout_toRightOf="@id/totalitem"
+            android:gravity="right"
+            android:text="Rp 0"
+            android:textColor="#525050"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/hargapajak"
+            android:layout_marginTop="17dp"
+            android:background="#E5E5E5" />
+
+        <TextView
+            android:id="@+id/subtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="6dp"
+            android:text="Subtotal"
+            android:textColor="#525050"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/hargasubtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="11dp"
+            android:layout_toRightOf="@id/subtotal"
+            android:gravity="right"
+            android:text="Rp 0"
+            android:textColor="#525050"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cuan"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="47dp"
+        android:background="@drawable/rounded100"
+        android:enabled="false"
+        android:gravity="center"
+        android:paddingVertical="9dp"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

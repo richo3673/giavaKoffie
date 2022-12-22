@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv2"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:layout_marginLeft="32dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="32dp"
+    android:background="@drawable/rounded"
+    android:backgroundTint="#967259"
+    android:padding="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/imgCard"
+        android:layout_width="61dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded15"
+        android:backgroundTint="#E9FAF2"
+        android:padding="17dp"
+        android:src="@drawable/ic_baseline_shopping_cart_24"
+        app:tint="@color/black" />
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@id/imgCard"
+        android:text="Jang Hyun"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/jam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nama"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="3.38dp"
+        android:layout_toRightOf="@id/imgCard"
+        android:text="16.30 PM"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/duit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="18dp"
+        android:layout_toRightOf="@id/nama"
+        android:gravity="right"
+        android:text="Rp100.000"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/jmlProduk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/duit"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:layout_toRightOf="@id/nama"
+        android:gravity="right"
+        android:text="2 Produk"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+</RelativeLayout>

@@ -1,0 +1,225 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 20,
+    "identityHash": "106cf65b6bd2eea6cb5fd68151ee8204",
+    "entities": [
+      {
+        "tableName": "Customer",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nama` TEXT, `alamat` TEXT, `noTelp` TEXT, `cust_id` INTEGER PRIMARY KEY AUTOINCREMENT)",
+        "fields": [
+          {
+            "fieldPath": "nama",
+            "columnName": "nama",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "alamat",
+            "columnName": "alamat",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "noTelp",
+            "columnName": "noTelp",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cust_id",
+            "columnName": "cust_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "cust_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Product",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`product_id` INTEGER PRIMARY KEY AUTOINCREMENT, `namaProduk` TEXT, `harga` INTEGER, `stok` INTEGER, `description` TEXT, `imagePath` BLOB)",
+        "fields": [
+          {
+            "fieldPath": "product_id",
+            "columnName": "product_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "namaProduk",
+            "columnName": "namaProduk",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "harga",
+            "columnName": "harga",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "stok",
+            "columnName": "stok",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imagePath",
+            "columnName": "imagePath",
+            "affinity": "BLOB",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "product_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Order",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cust_id` INTEGER, `tanggalPembelian` TEXT, `ongkir` INTEGER, `subtotal` INTEGER, `order_id` INTEGER PRIMARY KEY AUTOINCREMENT, FOREIGN KEY(`cust_id`) REFERENCES `Customer`(`cust_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "cust_id",
+            "columnName": "cust_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tanggalPembelian",
+            "columnName": "tanggalPembelian",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ongkir",
+            "columnName": "ongkir",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "subtotal",
+            "columnName": "subtotal",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "order_id",
+            "columnName": "order_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "order_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "Customer",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "cust_id"
+            ],
+            "referencedColumns": [
+              "cust_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "OrderItems",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`order_id` INTEGER, `product_id` INTEGER, `kuantitas` INTEGER, `totalHarga` INTEGER, `orderItems_id` INTEGER PRIMARY KEY AUTOINCREMENT, FOREIGN KEY(`order_id`) REFERENCES `Order`(`order_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`product_id`) REFERENCES `Product`(`product_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "order_id",
+            "columnName": "order_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "product_id",
+            "columnName": "product_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "kuantitas",
+            "columnName": "kuantitas",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "totalHarga",
+            "columnName": "totalHarga",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "orderItems_id",
+            "columnName": "orderItems_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "orderItems_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "Order",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "order_id"
+            ],
+            "referencedColumns": [
+              "order_id"
+            ]
+          },
+          {
+            "table": "Product",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "product_id"
+            ],
+            "referencedColumns": [
+              "product_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '106cf65b6bd2eea6cb5fd68151ee8204')"
+    ]
+  }
+}
