@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prokir.database.*
-import com.example.prokir.databinding.FragmentOneBinding
+import com.example.prokir.databinding.FragmentHomeBinding
 import com.example.prokir.ui.transaction.helper.TransactionAdapter
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class FragmentTransaction : Fragment(R.layout.fragment_one) {
+class FragmentHome : Fragment(R.layout.fragment_home) {
     private lateinit var dao: AppDao
-    private lateinit var binding: FragmentOneBinding
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: TransactionAdapter
 
@@ -25,14 +25,14 @@ class FragmentTransaction : Fragment(R.layout.fragment_one) {
     ): View? {
         // Inflate the layout for this fragment
         dao = AppDatabase.getInstance(requireContext()).getDao()
-        binding = FragmentOneBinding.inflate(layoutInflater)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
         activity?.runOnUiThread {
-//            GlobalScope.launch {
-//                initData()
+            GlobalScope.launch {
+                initData()
 //                adapter = TransactionAdapter(dao.getAllOrders())
-//            }
+            }
         }
-        return inflater.inflate(R.layout.fragment_one, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,15 +48,13 @@ class FragmentTransaction : Fragment(R.layout.fragment_one) {
         GlobalScope.launch {
             initData()
             adapter = TransactionAdapter(dao.getAllOrders())
-            activity?.runOnUiThread {
-                recyclerView.adapter = adapter
-            }
+            recyclerView.adapter = adapter
         }
 
     }
 
     private fun initData() {
-//        val cust1 = Customer("Jang Hyun", "Korea", "08237141234")
+//        val cust1 = Customer("Nelson Kurnianda", "Korea", "08237141234")
 //        val cust2 = Customer("Pesa Chang", "Italy", "08237141235")
 //        dao.insert(cust1, cust2)
 //        val p1 = Product("Kopi Hitam", 50000, 25, "-")

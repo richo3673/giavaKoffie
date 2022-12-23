@@ -89,7 +89,7 @@ class FragmentOrder : Fragment(R.layout.fragment_three)
                     dao.insert(orderItems)
                     Log.i(null, "jumlah e nambah ora : "+ dao.getAllOrders().size)
                 }
-                val fragOne = FragmentTransaction()
+                val fragOne = FragmentHome()
                 requireActivity().supportFragmentManager.beginTransaction().apply {
                     replace(R.id.main_frag, fragOne)
                     commit()

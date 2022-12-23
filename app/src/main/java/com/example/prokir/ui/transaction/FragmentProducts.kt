@@ -45,10 +45,8 @@ class FragmentProducts : Fragment(R.layout.fragment_products), ProductsAdapter.O
         recyclerView.setHasFixedSize(true)
 
             GlobalScope.launch {
-//                activity?.runOnUiThread{
                 binding.products.layoutManager = LinearLayoutManager(parentFragment?.context)
                 adapter = ProductsAdapter(dao.getAllProducts2(),this@FragmentProducts)
-//            }
                 activity?.runOnUiThread {
                     recyclerView.adapter = adapter
                 }

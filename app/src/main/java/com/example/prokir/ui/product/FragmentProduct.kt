@@ -2,11 +2,15 @@ package com.example.prokir.ui.product
 
 import com.example.prokir.R
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
+import android.widget.EditText
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prokir.database.AppDatabase
@@ -18,7 +22,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.prokir.ui.product.helper.ProductDataAdapter
 import com.example.prokir.ui.product.helper.RecyclerViewClickListener
 import com.example.prokir.ui.product.viewmodel.ProductViewModel
-import io.reactivex.disposables.Disposable
 
 
 class FragmentProduct : Fragment(R.layout.fragment_product), View.OnClickListener,
@@ -45,25 +48,19 @@ class FragmentProduct : Fragment(R.layout.fragment_product), View.OnClickListene
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<ImageButton>(R.id.addButton).setOnClickListener {
-            val fragAddProduct = FragmentAddProduct()
-            requireActivity().supportFragmentManager.beginTransaction().apply {
-                replace(R.id.main_frag, fragAddProduct)
-                commit()
-            }
-        }
+        binding.addButton.setOnClickListener(this)
+        binding.searchSubmit.setOnClickListener(this)
     }
 
     private fun initViews() {
         val layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.layoutManager = layoutManager
         adapter = ProductDataAdapter()
-//        adapter.notifyDataSetChanged()
         recyclerView.adapter = adapter
     }
 
     private fun setListeners() {
-        viewModel?.getProductData()
+        viewModel?.getProductData(binding.search.editText?.text.toString())
         adapter.listener = this@FragmentProduct
     }
 
@@ -89,7 +86,18 @@ class FragmentProduct : Fragment(R.layout.fragment_product), View.OnClickListene
 
 
     override fun onClick(p0: View?) {
-
+        when (p0?.id) {
+            R.id.addButton -> {
+                val fragAddProduct = FragmentAddProduct()
+                requireActivity().supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.main_frag, fragAddProduct)
+                    commit()
+                }
+            }
+            R.id.search_submit -> {
+                setListeners()
+            }
+        }
     }
 
     override fun onItemClicked(view: View, product: Product) {

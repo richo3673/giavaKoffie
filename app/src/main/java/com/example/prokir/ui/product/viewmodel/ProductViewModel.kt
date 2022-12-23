@@ -24,20 +24,24 @@ class ProductViewModel : ViewModel() {
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe({
-                getProductData()
+                getProductData(null)
             }, {
             })?.let {
                 compositeDisposable.add(it)
             }
     }
 
-    fun getProductData() {
+    fun getProductData(keyword: String?) {
         dataBaseInstance?.getDao()?.getAllProducts()
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribe({
                 if (!it.isNullOrEmpty()) {
-                    productList.postValue(it)
+                    if(keyword != null)
+                    productList.postValue(it.filter { it.namaProduk?.contains(keyword) ?: false })
+                    else{
+                        productList.postValue(it)
+                    }
                 } else {
                     productList.postValue(listOf())
                 }
@@ -66,15 +70,16 @@ class ProductViewModel : ViewModel() {
         dataBaseInstance?.getDao()?.delete(product)
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe ({
+            ?.subscribe({
                 //Refresh Page data
-                getProductData()
-            },{
+                getProductData(null)
+            }, {
 
             })?.let {
                 compositeDisposable.add(it)
             }
     }
+
 
     override fun onCleared() {
         compositeDisposable.dispose()

@@ -28,74 +28,92 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/productname"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_marginLeft="41dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="27dp"
-        android:background="@drawable/rounded6"
-        android:hint="Product Name"
-        android:padding="10dp"
-        android:paddingLeft="11.74dp"
-        android:paddingBottom="16dp"
-        android:textColor="#1D1D1D"
-        android:textColorHint="#1D1D1D"
-        android:textSize="14dp" />
+        android:hint="Name"
+        app:boxStrokeColor="#8C7D71"
+        app:endIconMode="clear_text">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#8C7D71"
+            android:textSize="14dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/stock"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/productname"
         android:layout_marginLeft="41dp"
-        android:layout_marginTop="40px"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="27dp"
-        android:background="@drawable/rounded6"
         android:hint="Stock"
-        android:padding="10dp"
-        android:paddingLeft="11.74dp"
-        android:paddingBottom="16dp"
-        android:textColor="#1D1D1D"
-        android:textColorHint="#1D1D1D"
-        android:textSize="14dp" />
+        app:boxStrokeColor="#8C7D71"
+        app:endIconMode="clear_text">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#8C7D71"
+            android:textSize="14dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/price"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/stock"
         android:layout_marginLeft="41dp"
-        android:layout_marginTop="40px"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="27dp"
-        android:background="@drawable/rounded6"
         android:hint="Price"
 
-        android:padding="10dp"
-        android:paddingLeft="11.74dp"
-        android:paddingBottom="16dp"
-        android:textColor="#1D1D1D"
-        android:textColorHint="#1D1D1D"
-        android:textSize="14dp" />
+        app:boxStrokeColor="#8C7D71"
+        app:endIconMode="clear_text">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#8C7D71"
+            android:textSize="14dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/description"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/price"
         android:layout_marginLeft="41dp"
-        android:layout_marginTop="40px"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="27dp"
-        android:background="@drawable/rounded6"
         android:hint="Description"
-        android:padding="10dp"
-        android:paddingLeft="11.74dp"
-        android:paddingBottom="16dp"
-        android:textColor="#1D1D1D"
-        android:textColorHint="#1D1D1D"
-        android:textSize="14dp" />
+        app:boxStrokeColor="#8C7D71"
+        app:counterEnabled ="true"
+        app:counterMaxLength="200"
+        app:endIconMode="clear_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#8C7D71"
+            android:textSize="14dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -116,16 +134,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="93dp"
         android:background="@drawable/rounded15"
-        android:src="@drawable/ic_camera"/>
+        android:src="@drawable/ic_camera" />
 
     <Button
         android:id="@+id/save"
         android:layout_width="223dp"
         android:layout_height="42dp"
         android:layout_below="@id/addimage"
-        android:text="SAVE"
-        android:textAllCaps="false"
-        android:layout_marginTop="21dp"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="#967259"/>
+        android:layout_marginTop="21dp"
+        android:backgroundTint="#967259"
+        android:text="SAVE"
+        android:textAllCaps="false" />
 </RelativeLayout>

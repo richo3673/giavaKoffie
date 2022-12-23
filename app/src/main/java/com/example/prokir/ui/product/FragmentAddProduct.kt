@@ -60,10 +60,10 @@ class FragmentAddProduct : Fragment(R.layout.fragment_add_product), View.OnClick
             inputStream?.close()
             binding.addimage.setImageBitmap(bitmap)
             binding.save.setOnClickListener {
-                val nama = binding.productname.text.toString()
-                val stok = binding.stock.text.toString()
-                val harga = binding.price.text.toString()
-                val desc = binding.description.text.toString()
+                val nama = binding.productname.editText?.text.toString()
+                val stok = binding.stock.editText?.text.toString()
+                val harga = binding.price.editText?.text.toString()
+                val desc = binding.description.editText?.text.toString()
                 //pakai observer
                 if (nama != "" && stok != "" && harga != "" && desc != "") {
                     val product = Product(null, nama, harga.toInt(), stok.toInt(), desc, bitmap)

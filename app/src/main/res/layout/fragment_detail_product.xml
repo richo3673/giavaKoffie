@@ -21,8 +21,9 @@
         android:background="@drawable/roundedtop16">
 
         <RelativeLayout
+            android:id="@id/content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="34dp"
             android:layout_marginTop="44dp">
 
@@ -120,30 +121,36 @@
                 android:textColor="@color/black"
                 android:textSize="11dp" />
 
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content"
+            android:layout_centerHorizontal="true">
+
             <Button
                 android:id="@+id/updateButton"
-                android:layout_width="323dp"
+                android:layout_width="150dp"
                 android:layout_height="42dp"
                 android:layout_below="@id/detail_stok"
-                android:text="Edit Product"
-                android:textAllCaps="false"
                 android:layout_marginTop="21dp"
-                android:layout_marginLeft="13dp"
-                android:backgroundTint="#967259"/>
+                android:backgroundTint="#967259"
+                android:text="Edit Product"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/deleteButton"
-                android:layout_width="323dp"
+                android:layout_width="150dp"
                 android:layout_height="42dp"
                 android:layout_below="@id/updateButton"
-                android:text="Delete Product"
-                android:textAllCaps="false"
-                android:layout_marginTop="21dp"
                 android:layout_marginLeft="13dp"
-                android:backgroundTint="#967259"/>
-
-
-        </RelativeLayout>
+                android:layout_marginTop="21dp"
+                android:backgroundTint="#967259"
+                android:text="Delete Product"
+                android:textAllCaps="false" />
+        </LinearLayout>
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -154,11 +161,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="17dp"
         android:layout_marginTop="25dp"
+        android:backgroundTint="@color/white50"
         android:clickable="true"
         app:borderWidth="0dp"
-        android:backgroundTint="@color/white50"
-        app:srcCompat="@drawable/arrow_left"
-        app:fabCustomSize="32dp"/>
+        app:fabCustomSize="32dp"
+        app:srcCompat="@drawable/arrow_left" />
 
 
 </RelativeLayout>

@@ -100,14 +100,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Total Salary"
+                android:text="Total Transaction"
                 android:textColor="#1D1D1D"
                 android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
+                android:layout_marginTop="8dp"
                 android:text="1.200.000"
                 android:textColor="#333333"
                 android:textSize="28sp"
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="PARK JANG HYUN"
+                android:text="ADMIN 1"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />

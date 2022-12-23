@@ -56,10 +56,10 @@ class FragmentUpdateProduct : Fragment(R.layout.fragment_add_product), View.OnCl
     }
 
     private fun handleData(product: Product) {
-        binding.productname.setText(product.namaProduk)
-        binding.stock.setText(product.stok.toString())
-        binding.price.setText(product.harga.toString())
-        binding.description.setText(product.description.toString())
+        binding.productname.editText?.setText(product.namaProduk)
+        binding.stock.editText?.setText(product.stok.toString())
+        binding.price.editText?.setText(product.harga.toString())
+        binding.description.editText?.setText(product.description.toString())
         binding.addimage.setImageBitmap(product.imagePath)
         binding.save.setOnClickListener {
             product.imagePath?.let { it1 -> updateProduct(it1) }
@@ -99,14 +99,14 @@ class FragmentUpdateProduct : Fragment(R.layout.fragment_add_product), View.OnCl
     }
 
     private fun updateProduct(bitmap: Bitmap) {
-        val nama = binding.productname.text.toString()
-        val stok = binding.stock.text.toString().toInt()
-        val harga = binding.price.text.toString().toInt()
-        val desc = binding.description.text.toString()
+        val nama = binding.productname.editText?.text.toString()
+        val stok = binding.stock.editText?.text.toString().toInt()
+        val harga = binding.price.editText?.text.toString().toInt()
+        val desc = binding.description.editText?.text.toString()
 
         GlobalScope.launch {
             dao = AppDatabase.getInstance(requireContext()).getDao()
-            val product = Product(arguments?.getInt("id"), nama, harga, stok,desc, bitmap)
+            val product = Product(arguments?.getInt("id"), nama, harga, stok, desc, bitmap)
             dao.update(product)
             val fragmentProduct = FragmentProduct()
             requireActivity().supportFragmentManager.beginTransaction().apply {

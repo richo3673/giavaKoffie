@@ -1,6 +1,7 @@
 package com.example.prokir.ui.transaction.helper
 
 
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.example.prokir.database.Order
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+
 class TransactionAdapter(private val dataSet: List<Order>) :
     RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
 
@@ -22,6 +24,7 @@ class TransactionAdapter(private val dataSet: List<Order>) :
      */
 
     private lateinit var dao: AppDao
+    private lateinit var namaProduk : String
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -64,7 +67,10 @@ class TransactionAdapter(private val dataSet: List<Order>) :
 //                        it
 //                    ).size.toString()
 //                }
-                findViewById<TextView>(R.id.jmlProduk).text = "$namaProduk (x$jmlp)"
+                (context as Activity).runOnUiThread {
+                    findViewById<TextView>(R.id.jmlProduk).text = "$namaProduk (x$jmlp)"
+
+                }
             }
         }
     }

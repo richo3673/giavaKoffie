@@ -6,14 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.prokir.database.AppDao
-import com.example.prokir.database.AppDatabase
-import com.example.prokir.databinding.FragmentOneBinding
 import com.example.prokir.databinding.FragmentTwoBinding
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class ragmentTwo : Fragment(R.layout.fragment_two)
 {
@@ -26,7 +20,7 @@ class ragmentTwo : Fragment(R.layout.fragment_two)
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentTwoBinding.inflate(layoutInflater)
-        return inflater.inflate(R.layout.fragment_one, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, Communicator {
 //        db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "db")
 //            .fallbackToDestructiveMigration()
 //            .build()
-        val fragOne = FragmentTransaction()
+        val fragOne = FragmentHome()
 
         binding.productfragment.setOnClickListener(this)
         binding.homefragment.setOnClickListener(this)
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, Communicator {
                 }
             }
             R.id.homefragment -> {
-                val fragOne = FragmentTransaction()
+                val fragOne = FragmentHome()
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.main_frag, fragOne)
                     commit()
