@@ -10,7 +10,7 @@ interface AppDao {
     fun getAllCustomers(): List<Customer>
 
     @Insert
-    fun insert(vararg customer: Customer)
+    suspend fun insert(customer: Customer) : Long
 
     @Delete
     fun delete(customer: Customer)

@@ -68,17 +68,17 @@ class FragmentOrder : Fragment(R.layout.fragment_three)
         }
 
         view.findViewById<TextView>(R.id.submit).setOnClickListener {
-            Toast.makeText(requireContext(), "bisa diklik", Toast.LENGTH_SHORT).show()
-
             if(datagiven!=null && view.findViewById<EditText>(R.id.jmlProduk).text.toString()!=""){
-                Log.i(null, "lolos ordernya")
                 val tanggal: String = view.findViewById<TextView>(R.id.tanggal).text.toString()
                 val subtotal: Int = getOnlyNumber(view.findViewById<TextView>(R.id.hargasubtotal).text
                     .toString())
                     .toInt()
-                Log.i(null, "iki subtotal e woi : $subtotal")
+                val customer  = view.findViewById<EditText>(R.id.custName).text.toString()
                 GlobalScope.launch {
-                    val order: Order = Order(1, tanggal, 0, subtotal)
+                    val cust = Customer(customer, "jalan", "0000")
+                    val a = dao.insert(cust)
+                    Log.v("cust", a.toString())
+                    val order = Order(a.toInt(), tanggal, 0, subtotal)
                     dao.insert(order)
                     val orderItems: OrderItems = OrderItems(
                         dao.getNewestOrder().order_id,
@@ -87,7 +87,6 @@ class FragmentOrder : Fragment(R.layout.fragment_three)
                         getOnlyNumber(view.findViewById<TextView>(R.id.hargasubtotal).text.toString()).toInt()
                     )
                     dao.insert(orderItems)
-                    Log.i(null, "jumlah e nambah ora : "+ dao.getAllOrders().size)
                 }
                 val fragOne = FragmentHome()
                 requireActivity().supportFragmentManager.beginTransaction().apply {
@@ -102,7 +101,6 @@ class FragmentOrder : Fragment(R.layout.fragment_three)
 
     private val quantityWatcher: TextWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
-            Log.e(null, view?.findViewById<EditText>(R.id.jmlProduk)?.text.toString())
             if(view?.findViewById<EditText>(R.id.jmlProduk)?.text.toString()!=""){
                 val kuantitas: Double = view?.findViewById<EditText>(R.id.jmlProduk)?.text.toString().toDouble()
                 val totalItem: Double =
@@ -127,7 +125,6 @@ class FragmentOrder : Fragment(R.layout.fragment_three)
     }
 
     private val getOnlyNumber: (String) -> Double = { str: String ->
-        Log.i(null, "oeeee "+str.replace(Regex("[^0-9]"), "").toDouble())
         str.replace(Regex("[^0-9]"), "").toDouble()
     }
 

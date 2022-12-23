@@ -26,50 +26,19 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
         // Inflate the layout for this fragment
         dao = AppDatabase.getInstance(requireContext()).getDao()
         binding = FragmentHomeBinding.inflate(layoutInflater)
-        activity?.runOnUiThread {
-            GlobalScope.launch {
-                initData()
-//                adapter = TransactionAdapter(dao.getAllOrders())
-            }
-        }
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        GlobalScope.launch{
-//            dao.deleteAllOrder()
-//        }
-
         recyclerView = view.findViewById(R.id.records)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
 
         GlobalScope.launch {
-            initData()
             adapter = TransactionAdapter(dao.getAllOrders())
             recyclerView.adapter = adapter
         }
 
-    }
-
-    private fun initData() {
-//        val cust1 = Customer("Nelson Kurnianda", "Korea", "08237141234")
-//        val cust2 = Customer("Pesa Chang", "Italy", "08237141235")
-//        dao.insert(cust1, cust2)
-//        val p1 = Product("Kopi Hitam", 50000, 25, "-")
-//        val p2 = Product("Kopi Putih", 52000, 28, "-")
-//        dao.insert(p1, p2)
-//        val dateFormat : DateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss ")
-//        val date: Date = Date()
-//        val dateTime = dateFormat.format(date)
-//        val o1 = Order(1, dateTime, 5000, 100000)
-//        val o2 = Order(2, dateTime, 5000, 104000)
-//        dao.insert(o1, o2)
-//        GlobalScope.launch {
-//            val oi1 = OrderItems(1, 1, 2, dao.searchProductById(1).harga?.times(2))
-//            val oi2 = OrderItems(2, 2, 2, dao.searchProductById(2).harga?.times(2))
-//            dao.insert(oi2)
-//        }
     }
 }

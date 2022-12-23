@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.prokir.database.*
 import com.example.prokir.databinding.ActivityMainBinding
 import com.example.prokir.ui.product.FragmentProduct
+import com.example.prokir.ui.profile.FragmentProfile
+import com.example.prokir.ui.statistic.FragmentStatistic
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, Communicator {
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, Communicator {
         binding.productfragment.setOnClickListener(this)
         binding.homefragment.setOnClickListener(this)
         binding.addTrans.setOnClickListener(this)
+        binding.statisticButton.setOnClickListener(this)
+        binding.profileFragment.setOnClickListener(this)
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.main_frag, fragOne)
             commit()
@@ -50,6 +54,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, Communicator {
                 val fragThree = FragmentOrder()
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.main_frag, fragThree)
+                    commit()
+                }
+            }
+            R.id.statisticButton -> {
+                val fragStat = FragmentStatistic()
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.main_frag, fragStat)
+                    commit()
+                    }
+            }
+            R.id.profileFragment -> {
+                val fragStat = FragmentProfile()
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.main_frag, fragStat)
                     commit()
                 }
             }

@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 
-@Database(entities = [Customer::class, Product::class, Order::class, OrderItems::class], version = 20, exportSchema = true)
+@Database(entities = [Customer::class, Product::class, Order::class, OrderItems::class], version = 21, exportSchema = true)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun getDao(): AppDao
